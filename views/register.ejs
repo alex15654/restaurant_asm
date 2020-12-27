@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>OUHK COMPS381F Project Assignment 2020</title>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+
+<body>
+<h1 data-position="header">OUHK - Editing Restaurant</h1>
+
+<section data-position="restaurants">
+    <h2 class="text-center">Register</h2>
+
+    <form action="/register" method="POST" novalidate>
+        <label for="_rname">Name</label>
+        <input type="text" name="user_name" id="_rname" class="form-control" placeholder="Name"
+               value="<%= (locals.old_data) ? old_data.user_name : ''; %>" required>
+
+
+        <label for="_rpass">Password</label>
+        <input type="password" name="user_pass" id="_rpass" class="form-control" placeholder="Password" required>
+
+        <% if (locals.register_error) {
+        register_error.forEach(function(error_msg){ %>
+            <div class="alert" style="color: red"><%= error_msg %></div>
+        <% });
+        } %>
+
+        <% if (locals.login_success) { %>
+            <div class="alert" style="color: green"><%- login_success %></div>
+        <% } %>
+        <button type="submit" class="btn btn-success">Sign Up</button>
+    </form>
+</section>
+
+
+<script src="/main.js"></script>
+</body>
+</html>

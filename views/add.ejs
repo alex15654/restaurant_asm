@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>OUHK COMPS381F Project Assignment 2020</title>
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+<h1 data-position="header">OUHK - Add Restaurant</h1>
+<h2>Hello <%=  locals.userName%>, welcome back!</h2><br>
+<a href="/logout" class="btn btn-danger">Logout</a>
+
+<section data-position="restaurants">
+    <h2>Add Restaurant</h2>
+
+    <form action="/restaurant/add" method="POST" enctype="multipart/form-data">
+        <input type="text" placeholder="name" name="name" required/>
+        <input type="text" placeholder="borough" name="borough" />
+        <input type="text" placeholder="cuisine" name="cuisine" />
+        <!-- address -->
+        <input type="text" placeholder="street" name="street" />
+        <input type="text" placeholder="building" name="building" />
+        <input type="text" placeholder="zipcode" name="zipcode" />
+        <!-- coord -->
+        <input type="text" placeholder="lat" name="lat" />
+        <input type="text" placeholder="long" name="long" />
+        <!-- photo -->
+        <input type="file" placeholder="photo" name="photo" />
+        <button type="submit">Submit</button>
+        <a href="<%= link %>">Back</a>
+    </form>
+</section>
+
+<script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>OUHK COMPS381F Project Assignment 2020</title>
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+<h1 data-position="header">OUHK - Editing Restaurant</h1>
+<h2>Hello <%=  locals.userName%>, welcome back!</h2><br>
+<a href="/logout" class="btn btn-danger">Logout</a>
+
+<section data-position="restaurants">
+    <h2><%= restaurant.name %></h2>
+
+    <form action="/restaurant/update" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%= restaurant._id %>" />
+        <input type="hidden" name="_method" value="put" />
+        <input type="text" placeholder="name" name="name" value="<%= restaurant.name %>"/>
+        <input type="text" placeholder="borough" name="borough" value="<%= restaurant.borough %>"/>
+        <input type="text" placeholder="cuisine" name="cuisine" value="<%= restaurant.cuisine %>"/>
+        <!-- address -->
+        <input type="text" placeholder="street" name="street" value="<%= restaurant.address.street %>"/>
+        <input type="text" placeholder="building" name="building" value="<%= restaurant.address.building %>"/>
+        <input type="text" placeholder="zipcode" name="zipcode" value="<%= restaurant.address.zipcode %>"/>
+        <!-- coord -->
+        <input type="text" placeholder="lat" name="lat" value="<%= restaurant.address.coord[0] %>"/>
+        <input type="text" placeholder="long" name="long" value="<%= restaurant.address.coord[1] %>"/>
+        <!-- photo -->
+        <input type="file" placeholder="photo" name="photo" />
+        <button type="submit">Submit</button>
+        <a href="<%= link %>">Back</a>
+    </form>
+</section>
+
+<script src="/main.js"></script>
+</body>
+</html>

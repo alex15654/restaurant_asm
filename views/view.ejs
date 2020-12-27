@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>OUHK COMPS381F Project Assignment 2020</title>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+
+<body>
+<h1 data-position="header">OUHK - Showing Restaurant</h1>
+<h2>Hello <%=  locals.userName%>, welcome back!</h2><br>
+<a href="/logout" class="btn btn-danger">Logout</a>
+
+<section data-position="restaurants">
+    <h2> <%= restaurant.name %><br>(_ID: <%= restaurant._id %>)</h2>
+    <span>
+        <% if(typeof restaurant.photo !== 'undefined' && restaurant.photo ){ %>
+            <img src="data: <%= restaurant.photo_minetype %>;base64, <%= restaurant.photo %>"
+                 class="w3-image w3-border w3-padding" style="width:60%">
+    </span><br>
+    <% } %>
+    <span><b>Name:</b> <%= restaurant.name %></span><br>
+    <span><b>Borough:</b> <%= restaurant.borough %></span><br>
+    <span><b>Cuisine:</b> <%= restaurant.cuisine %></span><br>
+    <span><b>Street:</b> <%= restaurant.address.street %></span><br>
+    <span><b>Building:</b> <%= restaurant.address.building %></span><br>
+    <span><b>Zipcode:</b> <%= restaurant.address.zipcode %></span><br>
+    <span><b>GPS:</b> [<%= restaurant.address.coord %>]</span><br>
+    <span><b>Owner:</b> <%= restaurant.owner.name %></span>
+    <br>
+    <%if(locals.userID == restaurant.owner.id){%>
+        <a href="/restaurant/update?id=<%= restaurant._id %>">Edit</a>
+        <a href="/restaurant/delete?id=<%= restaurant._id %>">Delete</a>
+    <% } %>
+    <a href="/">Back</a>
+</section>
+
+<script src="/main.js"></script>
+</body>
+</html>

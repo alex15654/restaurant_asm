@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>OUHK COMPS381F Project Assignment 2020</title>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+
+<body>
+<h1 data-position="header">OUHK - Restaurant List</h1>
+<h2>Hello <%=  locals.userName%>, welcome back!</h2><br>
+<a href="/logout" class="btn btn-danger">Logout</a>
+
+<section data-position="restaurants">
+    <h2>Restaurant (Showing <%= restaurants.length %> restaurants)</h2>
+
+    <ul class="restaurants">
+        <% for(var i = 0; i < restaurants.length; i++) { %>
+            <li class="restaurant">
+                <a href="/restaurant/display?id=<%= restaurants[i]._id %>">
+                    <span><%= restaurants[i].name %></span>
+                    (
+                    Borough: <span><%= restaurants[i].borough %></span>
+                    Cuisine: <span><%= restaurants[i].cuisine %></span>
+                    )
+                </a>
+            </li>
+        <% } %>
+        <li style="list-style: none">&nbsp;&nbsp;</li>
+        <li style="list-style: none"><a href="/restaurant/add"> Add Restaurant</a></li>
+    </ul>
+</section>
+
+<script src="/main.js"></script>
+</body>
+</html>
