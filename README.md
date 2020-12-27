@@ -1,2 +1,2 @@
 # restaurant
-cyka blyat, free ride 
+mada fuka!
